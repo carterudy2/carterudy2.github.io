@@ -1,25 +1,11 @@
 /* ============================================================
    Carter Udy — portfolio behavior
-   Vanilla JS. Handles: theme toggle, mobile nav, header shadow,
+   Vanilla JS. Handles: mobile nav, header shadow,
    reveal-on-scroll, and the footer year.
    ============================================================ */
 
 (function () {
   "use strict";
-
-  /* ---------- Theme toggle (persists to localStorage) ---------- */
-  const root = document.documentElement;
-  const themeBtn = document.getElementById("theme-toggle");
-
-  const stored = localStorage.getItem("theme");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  root.setAttribute("data-theme", stored || (prefersDark ? "dark" : "light"));
-
-  themeBtn?.addEventListener("click", function () {
-    const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    localStorage.setItem("theme", next);
-  });
 
   /* ---------- Mobile nav ---------- */
   const toggle = document.querySelector(".nav-toggle");

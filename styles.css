@@ -11,14 +11,6 @@
   --font: "Inter", system-ui, -apple-system, sans-serif;
 }
 
-html[data-theme="dark"] {
-  --bg:         #111111;
-  --text:       #f0f0f0;
-  --text-soft:  #aaaaaa;
-  --text-faint: #666666;
-  --border:     #2a2a2a;
-}
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; }
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
@@ -81,20 +73,6 @@ ul, ol { list-style: none; padding: 0; }
   text-decoration: none;
 }
 .nav-menu a:hover { color: var(--text); }
-
-.theme-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--text-faint);
-  font-size: .85rem;
-  padding: .25rem;
-  line-height: 1;
-}
-.theme-toggle:hover { color: var(--text); }
-.theme-toggle .icon-moon { display: none; }
-html[data-theme="dark"] .theme-toggle .icon-sun { display: none; }
-html[data-theme="dark"] .theme-toggle .icon-moon { display: block; }
 
 .nav-toggle {
   display: none;
