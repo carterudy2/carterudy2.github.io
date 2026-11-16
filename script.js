@@ -72,6 +72,28 @@
     });
   });
 
+  /* ---------- Current section in the nav ----------
+     The section is "current" once its top passes 40% of the way down the screen. */
+  const navLinks = Array.from(document.querySelectorAll('.nav-menu a[href^="#"]'));
+  const sections = Array.from(document.querySelectorAll("main section[id]"));
+  let navTicking = false;
+  function markCurrent() {
+    navTicking = false;
+    const line = window.innerHeight * 0.4;
+    let current = null;
+    sections.forEach(function (s) { if (s.getBoundingClientRect().top <= line) current = "#" + s.id; });
+    // at the very bottom the last section (Contact) can't reach the line, so count it as current
+    if (sections.length && window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) current = "#" + sections[sections.length - 1].id;
+    navLinks.forEach(function (a) {
+      if (a.getAttribute("href") === current) a.setAttribute("aria-current", "location");
+      else a.removeAttribute("aria-current");
+    });
+  }
+  window.addEventListener("scroll", function () {
+    if (!navTicking) { navTicking = true; requestAnimationFrame(markCurrent); }
+  }, { passive: true });
+  markCurrent();
+
   /* ---------- Footer year ---------- */
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
