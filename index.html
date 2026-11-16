@@ -21,7 +21,19 @@
 
   <header class="site-header" id="top">
     <nav class="nav" aria-label="Primary">
-      <a href="#top" class="brand">Carter Udy</a>
+      <a href="#top" class="brand" aria-label="Carter Udy">
+        <svg class="brand-sig" viewBox="84 79 600 113" aria-hidden="true" focusable="false">
+          <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M140 94 C136 82 124 85 113 98 C99 114 89 139 90 158 C91 170 101 172 111 165"/>
+            <path d="M120 152 C121 136 134 129 142 135 C150 142 143 162 131 162 C122 162 121 151 129 146 C139 141 152 142 162 147 C167 140 172 134 180 135"/>
+            <path d="M221 97 C219 120 217 145 221 166 M186 133 C207 129 232 124 257 119"/>
+            <path d="M233 160 C241 150 252 139 262 141 C270 143 263 156 254 155 C262 163 276 160 286 149 C292 142 297 141 300 147 C304 154 307 157 313 150 C323 140 341 128 363 117"/>
+            <path d="M482 104 C484 130 490 160 498 186 C504 170 512 148 520 124"/>
+            <path d="M560 141 C548 132 534 141 534 156 C534 170 550 172 560 158 M546 150 C549 146 554 146 557 151 M563 103 C562 130 561 152 563 177"/>
+            <path d="M576 150 C580 162 586 168 594 166 C604 162 610 151 616 140 C627 161 649 201 677 241"/>
+          </g>
+        </svg>
+      </a>
 
       <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
@@ -29,8 +41,29 @@
 
       <ul class="nav-menu" id="nav-menu">
         <li><a href="#about">About</a></li>
+        <li><a href="#now">This week</a></li>
         <li><a href="#writing">Writing</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li class="nav-contact">
+          <a href="#contact">Contact</a>
+          <div class="contact-pop">
+            <a href="https://www.linkedin.com/in/carter-udy-396347256/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <rect x="2" y="2" width="20" height="20" rx="4" fill="currentColor"/>
+                <g class="ico-knock">
+                  <circle cx="7.5" cy="7.4" r="1.6"/>
+                  <rect x="6" y="10" width="3" height="8" rx=".4"/>
+                  <path d="M11 10h2.8v1.3c.5-.9 1.6-1.5 2.9-1.5 2.2 0 3.3 1.4 3.3 3.9V18h-3v-3.9c0-1.1-.4-1.8-1.4-1.8s-1.6.7-1.6 1.8V18h-3z"/>
+                </g>
+              </svg>
+            </a>
+            <a href="mailto:carterudy2@gmail.com" aria-label="Email" title="Email">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="2.5"/>
+                <path d="M4 7l8 6 8-6"/>
+              </svg>
+            </a>
+          </div>
+        </li>
       </ul>
     </nav>
   </header>
@@ -84,6 +117,44 @@
         <li>AI engineering</li>
         <li>University of Michigan</li>
       </ul>
+    </section>
+
+    <!-- THIS WEEK — change weekly: the date plus the three items -->
+    <section class="section container" id="now">
+      <div class="now-head">
+        <p class="section-title">This week</p>
+        <p class="now-date">Updated <time datetime="2026-11-16">Nov 16, 2026</time></p>
+      </div>
+      <div class="now-grid">
+
+        <article class="now-card">
+          <p class="now-kind">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v15H5.5c-.8 0-1.5.7-1.5 1.5zM20 5.5c0-.8-.7-1.5-1.5-1.5H13v15h5.5c.8 0 1.5.7 1.5 1.5z"/></svg>
+            Book
+          </p>
+          <h3 class="now-title">The Intelligent Investor</h3>
+          <p class="now-by">Benjamin Graham</p>
+        </article>
+
+        <article class="now-card">
+          <p class="now-kind">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4M9 12h7M9 16h7"/></svg>
+            Article
+          </p>
+          <h3 class="now-title"><a href="https://am.jpmorgan.com/us/en/asset-management/institutional/insights/market-insights/eye-on-the-market/the-icarus-files-whats-next-for-nvidia-and-ai/" target="_blank" rel="noopener">The Icarus Files: What&rsquo;s next for Nvidia and AI</a></h3>
+          <p class="now-by">Michael Cembalest</p>
+        </article>
+
+        <article class="now-card">
+          <p class="now-kind">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            Watching
+          </p>
+          <h3 class="now-title"><a href="https://podcasts.apple.com/us/podcast/jensen-ousted-as-nvidia-ceo-spy-scandal-export-restrictions/id1502871393?i=1000801835339" target="_blank" rel="noopener">Jensen Ousted as Nvidia CEO: &ldquo;Spy&rdquo; Scandal, Export Restrictions, Market Impact</a></h3>
+          <p class="now-by">All-In Podcast &middot; Nov 14, 2026 &middot; 1h 25m</p>
+        </article>
+
+      </div>
     </section>
 
     <!-- WRITING -->

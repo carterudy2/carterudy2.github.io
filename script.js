@@ -60,6 +60,18 @@
     revealTargets.forEach((el) => io.observe(el));
   }
 
+  /* ---------- Back to top (signature + footer link) ----------
+     The #top anchor is the sticky header, which never leaves view,
+     so the browser won't scroll to it on its own. */
+  document.querySelectorAll('a[href="#top"]').forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      closeMenu();
+      window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+      history.replaceState(null, "", location.pathname + location.search);
+    });
+  });
+
   /* ---------- Footer year ---------- */
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
