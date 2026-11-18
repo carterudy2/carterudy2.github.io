@@ -11,6 +11,13 @@
   // Clear the red error state as soon as the visitor starts fixing the code.
   input.addEventListener("input", () => { input.classList.remove("wv-shake"); status.textContent = ""; });
 
+  // GoatCounter event per build. Path uses the opaque file id (not the firm name); the tracker's Builds tab maps id -> firm.
+  // goatcounter.count skips localhost and Carter's own ignored browser. The short wait lets the hit leave before document.write.
+  function track(path, title) {
+    try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: path, title: title, event: true }); } catch (e) { /* analytics never blocks access */ }
+    return new Promise((r) => setTimeout(r, 350));
+  }
+
   async function tryOpen(code, item) {
     const enc = await fetch("a/" + item, { cache: "no-cache" }).then((r) => r.json());
     const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(code), "PBKDF2", false, ["deriveKey"]);
@@ -37,6 +44,7 @@
         let html = await tryOpen(code, item);
         if (html) {
           status.textContent = "Opening…";
+          await track("unlock-" + item.replace(/\.json$/, ""), "Advisor build opened");
           // The browser's Back button returns to the Ventures page.
           const onBack = `<script>window.addEventListener('popstate', function () { location.reload(); });<\/script>`;
           // Way home, first item in the build's navy top bar, using the build's own fonts and colors
@@ -63,6 +71,7 @@
           return;
         }
       }
+      track("unlock-miss", "Advisor passcode did not match");
       status.textContent = "That passcode didn't match. Check it and try again.";
       input.classList.remove("wv-shake");
       void input.offsetWidth; // restart the animation on repeat misses
